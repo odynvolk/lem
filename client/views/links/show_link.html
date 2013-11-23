@@ -2,12 +2,13 @@
     <div class="link">
         <div class="link-content">
             <h3><a href="{{requested_url}}">{{requested_url}}</a></h3>
+            <div class="badge">{{google_pagerank}}</div>
+            <div class="badge badge-success">{{moz_da}}</div>
+            <div class="badge badge-success">{{moz_trust}}</div>
+            <div class="badge badge-info">{{maj_citation}}</div>
+            <div class="badge badge-info">{{maj_trust}}</div>
         </div>
-        <div class="badge">{{google_pagerank}}</div>
-        <div class="badge badge-success">{{moz_da}}</div>
-        <div class="badge badge-success">{{moz_trust}}</div>
-        <div class="badge badge-warning">{{maj_citation}}</div>
-        <div class="badge badge-warning">{{maj_trust}}</div>
-        <a href="{{linkEditPath this}}" class="edit btn">Edit</a>
+        <div class="link-content"><h3><a href="{{given_url}}">{{given_url}}</a></h3></div>
+        <a href="{{linkEditPath this}}" class="edit btn {{#unless status}}btn-warning{{/unless}}">Edit</a>
     </div>
 </template>

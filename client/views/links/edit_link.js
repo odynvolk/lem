@@ -12,6 +12,7 @@ Template.linkEdit.events({
     
     var linkProperties = {
         requested_url: $(e.target).find('[name=requested_url]').val(),
+        given_url: $(e.target).find('[name=given_url]').val(),
         google_pagerank: $(e.target).find('[name=google_pagerank]').val(),
         contact_name: $(e.target).find('[name=contact_name]').val(),
         contact_email: $(e.target).find('[name=contact_email]').val(),
@@ -19,7 +20,8 @@ Template.linkEdit.events({
         moz_trust: $(e.target).find('[name=moz_trust]').val(),
         maj_citation: $(e.target).find('[name=maj_citation]').val(),
         maj_trust: $(e.target).find('[name=maj_trust]').val(),
-        status: $(e.target).find('[name=status]').val()
+        status: $(e.target).find('[name=status]').val(),
+        note: $(e.target).find('[name=note]').val()
     };
     
     Links.update(currentLinkId, {$set: linkProperties}, function(error) {
