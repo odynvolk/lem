@@ -1,0 +1,27 @@
+<template name="header">
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="{{homePath}}">Link Exchange Manager</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="{{activeRouteClass 'home' 'allLinks'}}">
+            <a href="{{homePath}}">All</a>
+          </li>
+          {{#if currentUser}}
+            <li>
+              <a href="{{linkNewPath}}">New</a>
+            </li>
+          {{/if}}
+        </ul>
+        <ul class="nav pull-right">
+          <li>{{loginButtons}}</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+</template>

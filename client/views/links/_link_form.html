@@ -1,0 +1,78 @@
+<template name="linkForm">
+    <form class="main">
+        <div class="control-group">
+            <label class="control-label" for="requested_url">Requested URL</label>
+            <div class="controls">
+                <input name="requested_url" type="text" value="{{requested_url}}" placeholder="Requested URL"/>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="contact_name">Contact name</label>
+            <div class="controls">
+                <input name="contact_name" type="text" value="{{contact_name}}" placeholder="Contact name"/>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="contact_email">Contact email</label>
+            <div class="controls">
+                <input name="contact_email" type="TEXT" value="{{contact_email}}" placeholder="Contact email"/>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="moz_da">Google Pagerank</label>
+            <div class="controls">
+                <input name="google_pagerank" type="text" value="{{google_pagerank}}" placeholder="Google Pagerank"/>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="moz_da">Moz Domain Authority</label>
+            <div class="controls">
+                <input name="moz_da" type="text" value="{{moz_da}}" placeholder="Moz Domain Authority"/>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="moz_trust">Moz Trust</label>
+            <div class="controls">
+                <input name="moz_trust" type="text" value="{{moz_trust}}" placeholder="Moz Trust"/>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="maj_citation">Majestic Citation</label>
+            <div class="controls">
+                <input name="maj_citation" type="text" value="{{maj_citation}}" placeholder="Majestic Citation"/>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="maj_trust">Majestic Trust</label>
+            <div class="controls">
+                <input name="maj_trust" type="text" value="{{maj_trust}}" placeholder="Majestic Trust"/>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="status">Status</label>
+            <div class="controls">
+                <input name="status" type="text" value="{{status}}" placeholder="Status"/>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <input type="submit" value="Submit" class="btn btn-primary submit"/>
+            </div>
+        </div>
+        <hr/>
+        <div class="control-group">
+            <div class="controls">
+                <a class="btn btn-danger delete" href="#">Delete</a>
+            </div>
+        </div>
+    </form>
+</template>
