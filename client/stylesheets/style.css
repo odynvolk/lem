@@ -151,3 +151,8 @@ body {
 .metrics {
     margin-top: 10px;
 }
+
+.alert {
+    display: none;
+    text-align: center;
+}

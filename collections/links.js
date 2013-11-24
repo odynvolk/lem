@@ -24,7 +24,8 @@ Meteor.methods({
         linkWithSameLink._id);
     }
     
-    var link = _.extend(_.pick(linkAttributes, 'requested_url', 'contact_name', 'contact_email', 'google_pagerank', 'moz_da', 'moz_da',
+    var link = _.extend(_.pick(linkAttributes, 'requested_url',  'given_url', 'contact_name', 'contact_email',
+                                               'google_pagerank', 'moz_da', 'moz_da',
                                                'maj_citation', 'maj_trust', 'status'), {
       userId: user._id,
       author: user.username,

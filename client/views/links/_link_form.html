@@ -1,14 +1,17 @@
 <template name="linkForm">
+    <div class="alert alert-success alert-dismissable">The metrics have now been fetched. <a class="close" onclick="$('.alert').hide()">×</a></div>
     <form class="main">
         <div class="control-group-row">
             <div class="control-group">
                 <label class="control-label" for="requested_url">Requested URL</label>
+
                 <div class="controls">
                     <input name="requested_url" type="text" value="{{requested_url}}" placeholder="Requested URL"/>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="contact_name">Contact name</label>
+
                 <div class="controls">
                     <input name="contact_name" type="text" value="{{contact_name}}" placeholder="Contact name"/>
                 </div>
@@ -18,6 +21,7 @@
         <div class="control-group-row">
             <div class="control-group">
                 <label class="control-label" for="given_url">Given URL</label>
+
                 <div class="controls">
                     <input name="given_url" type="text" value="{{given_url}}" placeholder="Given URL"/>
                 </div>
@@ -25,14 +29,18 @@
 
             <div class="control-group">
                 <label class="control-label" for="contact_email">Contact email</label>
+
                 <div class="controls">
                     <input name="contact_email" type="text" value="{{contact_email}}" placeholder="Contact email"/>
                 </div>
             </div>
         </div>
 
+        <hr/>
+
         <div class="control-group">
-            <label class="control-label" for="moz_da">Google Pagerank</label>
+            <label class="control-label badge" for="moz_da">Pagerank</label>
+
             <div class="controls">
                 <input name="google_pagerank" type="text" value="{{google_pagerank}}" placeholder="Google Pagerank"/>
             </div>
@@ -40,14 +48,16 @@
 
         <div class="control-group-row">
             <div class="control-group">
-                <label class="control-label" for="moz_da">Moz Domain Authority</label>
+                <label class="control-label badge badge-success" for="moz_da">Domain Authority</label>
+
                 <div class="controls">
                     <input name="moz_da" type="text" value="{{moz_da}}" placeholder="Moz Domain Authority"/>
                 </div>
             </div>
 
             <div class="control-group">
-                <label class="control-label" for="maj_citation">Majestic Citation</label>
+                <label class="control-label badge badge-info" for="maj_citation">Citation</label>
+
                 <div class="controls">
                     <input name="maj_citation" type="text" value="{{maj_citation}}" placeholder="Majestic Citation"/>
                 </div>
@@ -55,16 +65,17 @@
         </div>
 
         <div class="control-group-row">
-
             <div class="control-group">
-                <label class="control-label" for="moz_trust">Moz Trust</label>
+                <label class="control-label badge badge-success" for="moz_trust">Trust</label>
+
                 <div class="controls">
                     <input name="moz_trust" type="text" value="{{moz_trust}}" placeholder="Moz Trust"/>
                 </div>
             </div>
 
             <div class="control-group">
-                <label class="control-label" for="maj_trust">Majestic Trust</label>
+                <label class="control-label badge badge-info" for="maj_trust">Trust</label>
+
                 <div class="controls">
                     <input name="maj_trust" type="text" value="{{maj_trust}}" placeholder="Majestic Trust"/>
                 </div>
@@ -72,7 +83,16 @@
         </div>
 
         <div class="control-group">
+            <div class="controls">
+                <a class="btn get-metrics" href="#">Get metrics</a>
+            </div>
+        </div>
+
+        <hr/>
+
+        <div class="control-group">
             <label class="control-label" for="status">Status</label>
+
             <div class="controls">
                 <input name="status" type="text" value="{{status}}" placeholder="Status"/>
             </div>
@@ -80,6 +100,7 @@
 
         <div class="control-group">
             <label class="control-label" for="note">Note</label>
+
             <div class="controls">
                 <textarea rows="5" name="note" type="text" value="{{note}}" placeholder="Note"/>
             </div>

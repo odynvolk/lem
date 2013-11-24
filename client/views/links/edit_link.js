@@ -7,9 +7,9 @@ Template.linkEdit.helpers({
 Template.linkEdit.events({
   'submit form': function(e) {
     e.preventDefault();
-    
+
     var currentLinkId = Session.get('currentLinkId');
-    
+
     var linkProperties = {
         requested_url: $(e.target).find('[name=requested_url]').val(),
         given_url: $(e.target).find('[name=given_url]').val(),
@@ -23,7 +23,7 @@ Template.linkEdit.events({
         status: $(e.target).find('[name=status]').val(),
         note: $(e.target).find('[name=note]').val()
     };
-    
+
     Links.update(currentLinkId, {$set: linkProperties}, function(error) {
       if (error) {
         throwError(error.reason);
@@ -32,10 +32,29 @@ Template.linkEdit.events({
       }
     });
   },
-  
+
+  'click .get-metrics': function (e) {
+    e.preventDefault();
+
+    var a = document.createElement('a');
+    a.href = $('input[name=requested_url]').val();
+
+    Meteor.call('getMetrics', a.hostname, function (error, result) {
+        var currentLinkId = Session.get('currentLinkId');
+        Links.update(currentLinkId, {$set: result}, function (error) {
+            if (error) {
+                throwError(error.reason);
+            } else {
+                Meteor.Router.to('linkEdit', currentLinkId);
+                $(".alert").show();
+            }
+        });
+    });
+  },
+
   'click .delete': function(e) {
     e.preventDefault();
-    
+
     if (confirm("Delete this entry?")) {
       Links.remove(Session.get('currentLinkId'));
       Meteor.Router.to('linksList');
