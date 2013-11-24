@@ -25,5 +25,21 @@ Meteor.methods({
         result['google_pagerank'] = google_pagerank;
 
         return result;
+    },
+
+    alive: function (requested_url, placed_url) {
+        var response = Meteor.http.get(requested_url);
+        $ = cheerio.load(response.content);
+
+        var result = {};
+        result['alive'] = false;
+
+        $($("a")).each(function() {
+            if ($(this).attr('href') == placed_url) {
+                result['alive'] = true;
+            }
+        });
+
+        return result;
     }
 });

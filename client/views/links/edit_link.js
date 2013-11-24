@@ -12,6 +12,7 @@ Template.linkEdit.events({
 
     var linkProperties = {
         requested_url: $(e.target).find('[name=requested_url]').val(),
+        placed_url: $(e.target).find('[name=placed_url]').val(),
         given_url: $(e.target).find('[name=given_url]').val(),
         google_pagerank: $(e.target).find('[name=google_pagerank]').val(),
         contact_name: $(e.target).find('[name=contact_name]').val(),
@@ -40,6 +41,25 @@ Template.linkEdit.events({
     a.href = $('input[name=requested_url]').val();
 
     Meteor.call('getMetrics', a.hostname, function (error, result) {
+        var currentLinkId = Session.get('currentLinkId');
+        Links.update(currentLinkId, {$set: result}, function (error) {
+            if (error) {
+                throwError(error.reason);
+            } else {
+                Meteor.Router.to('linkEdit', currentLinkId);
+                $(".alert").show();
+            }
+        });
+    });
+  },
+
+  'click .alive': function (e) {
+    e.preventDefault();
+
+    var requested_url = $('input[name=requested_url]').val();
+    var placed_url = $('input[name=placed_url]').val();
+
+    Meteor.call('alive', requested_url, placed_url, function (error, result) {
         var currentLinkId = Session.get('currentLinkId');
         Links.update(currentLinkId, {$set: result}, function (error) {
             if (error) {

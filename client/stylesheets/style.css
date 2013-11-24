@@ -152,7 +152,18 @@ body {
     margin-top: 10px;
 }
 
-.alert {
+.alert-success {
     display: none;
+}
+
+.alert, .alert-success {
     text-align: center;
+}
+
+.given_url, .delete {
+    float: right;
+}
+
+textarea {
+    width: 429px;
 }

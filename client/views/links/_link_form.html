@@ -1,9 +1,12 @@
-<template name="linkForm">
-    <div class="alert alert-success alert-dismissable">The metrics have now been fetched. <a class="close" onclick="$('.alert').hide()">×</a></div>
+<template name="linkForm" xmlns="http://www.w3.org/1999/html">
+    <div class="alert alert-success alert-dismissable">Operation done. <a class="close" onclick="$('.alert-success').hide()">×</a></div>
+    {{#unless alive}}
+        <div class="alert alert-danger">The requested URL doesn't seem to have the placed URL.</div>
+    {{/unless}}
     <form class="main">
         <div class="control-group-row">
             <div class="control-group">
-                <label class="control-label" for="requested_url">Requested URL</label>
+                <label class="control-label" for="requested_url">Requested URL</label> {{alive}}
 
                 <div class="controls">
                     <input name="requested_url" type="text" value="{{requested_url}}" placeholder="Requested URL"/>
@@ -13,11 +16,27 @@
 
         <div class="control-group-row">
             <div class="control-group">
+                <label class="control-label" for="placed_url">Placed URL</label>
+
+                <div class="controls">
+                    <input name="placed_url" type="text" value="{{placed_url}}" placeholder="Placed URL"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-group-row given_url">
+            <div class="control-group">
                 <label class="control-label" for="given_url">Given URL</label>
 
                 <div class="controls">
                     <input name="given_url" type="text" value="{{given_url}}" placeholder="Given URL"/>
                 </div>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="controls alive">
+                <a class="btn alive" href="#">Alive?</a>
             </div>
         </div>
 
@@ -86,7 +105,7 @@
         </div>
 
         <div class="control-group-row">
-            <div class="control-group control-group-row">
+            <div class="control-group">
                 <label class="control-label" for="contact_email">Contact email</label>
 
                 <div class="controls">
@@ -103,15 +122,19 @@
             </div>
         </div>
 
-        <div class="control-group">
-            <div class="controls">
-                <input type="submit" value="Submit" class="btn btn-primary submit"/>
+        <div class="control-group-row">
+            <div class="control-group">
+                <div class="controls">
+                    <input type="submit" value="Submit" class="btn btn-primary submit"/>
+                </div>
             </div>
         </div>
-        <hr/>
-        <div class="control-group">
-            <div class="controls">
-                <a class="btn btn-danger delete" href="#">Delete</a>
+
+        <div class="control-group-row delete">
+            <div class="control-group">
+                <div class="controls">
+                    <a class="btn btn-danger delete" href="#">Delete</a>
+                </div>
             </div>
         </div>
     </form>

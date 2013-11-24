@@ -7,7 +7,7 @@ Links.allow({
 
 Meteor.methods({
   link: function(linkAttributes) {
-    var user = Meteor.user(), linkWithSameLink = Links.findOne({url: linkAttributes.url});
+    var user = Meteor.user();
     
     // ensure the user is logged in
     if (!user)
@@ -16,17 +16,11 @@ Meteor.methods({
     // ensure the link has a requested url
     if (!linkAttributes.requested_url)
       throw new Meteor.Error(422, 'Please fill out page requested');
-    
-    // check that there are no previous posts with the same link
-    if (linkAttributes.requested_url && linkWithSameLink) {
-      throw new Meteor.Error(302, 
-        'This link has already been posted', 
-        linkWithSameLink._id);
-    }
-    
-    var link = _.extend(_.pick(linkAttributes, 'requested_url',  'given_url', 'contact_name', 'contact_email',
+
+    var link = _.extend(_.pick(linkAttributes, 'requested_url',  'placed_url', 'given_url', 'alive',
+                                               'contact_name', 'contact_email',
                                                'google_pagerank', 'moz_da', 'moz_da',
-                                               'maj_citation', 'maj_trust', 'status'), {
+                                               'maj_citation', 'maj_trust', 'note'), {
       userId: user._id,
       author: user.username,
       created: new Date().getTime(),
