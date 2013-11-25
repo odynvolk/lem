@@ -9,11 +9,11 @@
       <a class="brand" href="{{homePath}}">Link Exchange Manager</a>
       <div class="nav-collapse collapse">
         <ul class="nav">
-          <li class="{{activeRouteClass 'home' 'allLinks'}}">
-            <a href="{{homePath}}">All</a>
-          </li>
           {{#if currentUser}}
-            <li>
+            <li class="{{activeRouteClass 'home' 'allLinks'}}">
+              <a href="{{homePath}}">All</a>
+            </li>
+            <li class="{{activeRouteClass 'linkNew'}}">
               <a href="{{linkNewPath}}">New</a>
             </li>
           {{/if}}
